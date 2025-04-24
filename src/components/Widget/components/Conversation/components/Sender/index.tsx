@@ -147,6 +147,8 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         />
         
       </div>
+
+      
       <button type="submit" className="rcw-send" onClick={handlerSendMessage}>
         <img src={send} className="rcw-send-icon" alt={buttonAlt} />
       </button>

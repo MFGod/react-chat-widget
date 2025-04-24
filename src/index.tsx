@@ -65,6 +65,7 @@ function ConnectedWidget({
   resizable,
   emojis
 }: Props) {
+   console.log('musor')
   return (
     <Provider store={store}>
       <Widget
