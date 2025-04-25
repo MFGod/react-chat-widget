@@ -64,7 +64,8 @@ function ConnectedWidget({
   handleSubmit,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  children
 }: Props) {
   return (
     <Provider store={store}>
