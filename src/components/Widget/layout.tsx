@@ -38,7 +38,8 @@ type Props = {
   zoomStep?: number;
   showBadge?: boolean;
   resizable?: boolean;
-  emojis?: boolean
+  emojis?: boolean;
+  children?: React.ReactNode;
 }
 
 function WidgetLayout({
@@ -67,7 +68,8 @@ function WidgetLayout({
   zoomStep,
   showBadge,
   resizable,
-  emojis
+  emojis,
+  children
 }: Props) {
   const dispatch = useDispatch();
   const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
@@ -147,6 +149,7 @@ function WidgetLayout({
           showTimeStamp={showTimeStamp}
           resizable={resizable}
           emojis={emojis}
+          children={children}
         />
       }
       {customLauncher ?

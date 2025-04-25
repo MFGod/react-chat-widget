@@ -34,6 +34,7 @@ type Props = {
   showTimeStamp: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  children?: React.ReactNode;
 };
 
 function Conversation({
@@ -54,7 +55,8 @@ function Conversation({
   sendButtonAlt,
   showTimeStamp,
   resizable,
-  emojis
+  emojis,
+  children,
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();
   let startX, startWidth;
@@ -134,6 +136,7 @@ function Conversation({
         buttonAlt={sendButtonAlt}
         onPressEmoji={togglePicker}
         onChangeSize={setOffset}
+        children={children}
       />
     </div>
   );

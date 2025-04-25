@@ -34,6 +34,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   showBadge?: boolean;
   resizable?: boolean;
+  children?: React.ReactNode;
 } & typeof defaultProps;
 
 function ConnectedWidget({
@@ -65,7 +66,6 @@ function ConnectedWidget({
   resizable,
   emojis
 }: Props) {
-   console.log('musor')
   return (
     <Provider store={store}>
       <Widget
@@ -96,6 +96,7 @@ function ConnectedWidget({
         showBadge={showBadge}
         resizable={resizable}
         emojis={emojis}
+        children={children} 
       />
     </Provider>
   );

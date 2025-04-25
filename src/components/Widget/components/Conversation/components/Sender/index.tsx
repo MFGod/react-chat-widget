@@ -20,9 +20,10 @@ type Props = {
   onPressEmoji: () => void;
   onChangeSize: (event: any) => void;
   onTextInputChange?: (event: any) => void;
+  children?: React.ReactNode;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize }: Props, ref) {
+function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize, children }: Props, ref) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef<HTMLDivElement>(null!);
   const refContainer = useRef<HTMLDivElement>(null);
@@ -148,6 +149,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
         
       </div>
 
+      <div>{children}</div>
       
       <button type="submit" className="rcw-send" onClick={handlerSendMessage}>
         <img src={send} className="rcw-send-icon" alt={buttonAlt} />
