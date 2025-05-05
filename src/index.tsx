@@ -34,6 +34,7 @@ type Props = {
   handleSubmit?: AnyFunction;
   showBadge?: boolean;
   resizable?: boolean;
+  disabledInput?: boolean;
   children?: React.ReactNode;
 } & typeof defaultProps;
 
@@ -65,6 +66,7 @@ function ConnectedWidget({
   showBadge,
   resizable,
   emojis,
+  disabledInput,
   children
 }: Props) {
   return (
@@ -97,6 +99,7 @@ function ConnectedWidget({
         showBadge={showBadge}
         resizable={resizable}
         emojis={emojis}
+        disabledInput={disabledInput}
         children={children} 
       />
     </Provider>
