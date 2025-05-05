@@ -34,6 +34,7 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  disabledInput?: boolean;
   children?: React.ReactNode;
 }
 
@@ -65,6 +66,7 @@ function Widget({
   showBadge,
   resizable,
   emojis,
+  disabledInput,
   children,
 }: Props) {
   const dispatch = useDispatch();
@@ -117,6 +119,7 @@ function Widget({
       showBadge={showBadge}
       resizable={resizable}
       emojis={emojis}
+      disabledInput={disabledInput}
       children={children}
     />
   );

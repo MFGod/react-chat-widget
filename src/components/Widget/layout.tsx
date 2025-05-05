@@ -39,6 +39,7 @@ type Props = {
   showBadge?: boolean;
   resizable?: boolean;
   emojis?: boolean;
+  disabledInput?: boolean;
   children?: React.ReactNode;
 }
 
@@ -69,6 +70,7 @@ function WidgetLayout({
   showBadge,
   resizable,
   emojis,
+  disabledInput, 
   children
 }: Props) {
   const dispatch = useDispatch();
@@ -77,6 +79,8 @@ function WidgetLayout({
     dissableInput: state.behavior.disabledInput,
     visible: state.preview.visible,
   }));
+
+  const isInputDisabled = disabledInput ?? dissableInput;
 
   const messageRef = useRef<HTMLDivElement | null>(null);
 
@@ -139,7 +143,7 @@ function WidgetLayout({
           profileClientAvatar={profileClientAvatar}
           toggleChat={onToggleConversation}
           showCloseButton={showCloseButton}
-          disabledInput={dissableInput}
+          disabledInput={isInputDisabled}
           autofocus={autofocus}
           titleAvatar={titleAvatar}
           className={showChat ? 'active' : 'hidden'}
