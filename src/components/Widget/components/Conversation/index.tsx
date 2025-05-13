@@ -20,7 +20,6 @@ type Props = {
   subtitle: string;
   senderPlaceHolder: string;
   showCloseButton: boolean;
-  disabledInput: boolean;
   autofocus: boolean;
   className: string;
   sendMessage: AnyFunction;
@@ -33,6 +32,7 @@ type Props = {
   sendButtonAlt: string;
   showTimeStamp: boolean;
   resizable?: boolean;
+  disabledInput?: boolean;
   emojis?: boolean;
   children?: React.ReactNode;
 };
@@ -42,7 +42,6 @@ function Conversation({
   subtitle,
   senderPlaceHolder,
   showCloseButton,
-  disabledInput,
   autofocus,
   className,
   sendMessage,
@@ -56,6 +55,7 @@ function Conversation({
   showTimeStamp,
   resizable,
   emojis,
+  disabledInput,
   children,
 }: Props) {
   const [containerDiv, setContainerDiv] = useState<HTMLElement | null>();

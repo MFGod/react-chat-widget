@@ -74,13 +74,11 @@ function WidgetLayout({
   children
 }: Props) {
   const dispatch = useDispatch();
-  const { dissableInput, showChat, visible } = useSelector((state: GlobalState) => ({
+  const {  showChat, visible } = useSelector((state: GlobalState) => ({
     showChat: state.behavior.showChat,
     dissableInput: state.behavior.disabledInput,
     visible: state.preview.visible,
   }));
-
-  const isInputDisabled = disabledInput ?? dissableInput;
 
   const messageRef = useRef<HTMLDivElement | null>(null);
 
@@ -143,7 +141,7 @@ function WidgetLayout({
           profileClientAvatar={profileClientAvatar}
           toggleChat={onToggleConversation}
           showCloseButton={showCloseButton}
-          disabledInput={isInputDisabled}
+          disabledInput={disabledInput}
           autofocus={autofocus}
           titleAvatar={titleAvatar}
           className={showChat ? 'active' : 'hidden'}

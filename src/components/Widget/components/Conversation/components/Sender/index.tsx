@@ -13,17 +13,17 @@ import './style.scss';
 
 type Props = {
   placeholder: string;
-  disabledInput: boolean;
   autofocus: boolean;
   sendMessage: (event: any) => void;
   buttonAlt: string;
   onPressEmoji: () => void;
   onChangeSize: (event: any) => void;
   onTextInputChange?: (event: any) => void;
+  disabledInput?: boolean;
   children?: React.ReactNode;
 }
 
-function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize, children }: Props, ref) {
+function Sender({ sendMessage, placeholder, autofocus, onTextInputChange, buttonAlt, onPressEmoji, onChangeSize, disabledInput, children }: Props, ref) {
   const showChat = useSelector((state: GlobalState) => state.behavior.showChat);
   const inputRef = useRef<HTMLDivElement>(null!);
   const refContainer = useRef<HTMLDivElement>(null);
@@ -41,6 +41,11 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
   });
 
   const handlerOnChange = (event) => {
+    if (disabledInput) {
+      console.log("[Ввод заблокирован]", disabledInput)
+      return
+   };
+
     onTextInputChange && onTextInputChange(event)
   }
 
@@ -124,7 +129,7 @@ function Sender({ sendMessage, placeholder, disabledInput, autofocus, onTextInpu
     onPressEmoji();
     checkSize();
   }
-
+  
   return (
     <div ref={refContainer} className="rcw-sender">
       <button className='rcw-picker-btn' type="submit" onClick={handlerPressEmoji}>
